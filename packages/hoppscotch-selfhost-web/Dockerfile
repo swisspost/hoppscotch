@@ -14,9 +14,6 @@ RUN pnpm run build
 
 # Final stage, take the build artifacts and package it into a static Caddy server
 FROM caddy:2-alpine
-
-LABEL org.opencontainers.image.source="https://github.com/swisspost/hoppscotch"
-
 WORKDIR /site
 COPY packages/hoppscotch-selfhost-web/Caddyfile /etc/caddy/Caddyfile
 COPY --from=builder /usr/src/app/packages/hoppscotch-selfhost-web/dist/ .
