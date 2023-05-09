@@ -30,6 +30,8 @@ EXPOSE 3170
 
 FROM builder AS prod
 
+LABEL org.opencontainers.image.source="https://github.com/swisspost/hoppscotch"
+
 ENV PRODUCTION="true"
 
 CMD ["pnpm", "run", "start:prod"]
